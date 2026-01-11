@@ -14,7 +14,7 @@ This skill transforms specifications and test requirements into concrete, execut
 - **As part of the planning pipeline**: `/brainstorm` → `/breakdown` → `/spec` → `/test-reqs` → `/decompose`
 - **Standalone**: When you have a spec + test requirements and need executable task breakdown
 
-**When in the pipeline**: Takes output from `/spec` (formal specification) and `/test-reqs` (test scenarios) to generate feature areas with concrete tasks.
+**When in the pipeline**: Takes output from `/spec` (formal specification) and `/test-reqs` (test scenarios) to generate feature areas with concrete tasks. **Important**: Reference `/breakdown` Layer 3 for technical decisions - use specific tech choices (PostgreSQL, JWT, Redis) in task descriptions rather than generic terms ("database", "auth token", "cache").
 
 ## Execution Rhythm: One Phase Per Turn
 

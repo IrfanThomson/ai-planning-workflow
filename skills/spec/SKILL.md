@@ -14,7 +14,7 @@ This skill creates detailed, behavior-focused specifications from breakdown outp
 - **As part of the planning pipeline**: `/brainstorm` → `/breakdown` → `/spec` → `/test-reqs` → `/decompose`
 - **Standalone**: When you need a formal specification for any feature or system
 
-**When in the pipeline**: Takes `/breakdown` Layer 3 (blueprint) and formalizes it into a structured specification that feeds into `/test-reqs`.
+**When in the pipeline**: Takes `/breakdown` Layer 3 (blueprint) and formalizes it into a structured specification that feeds into `/test-reqs`. **Important**: Reference Layer 3 for technical decisions (tech stack, architecture patterns, data schemas) - these should be preserved in the spec's technical context, not abstracted away.
 
 ## Execution Rhythm: Generate Spec in One Turn
 

@@ -14,7 +14,7 @@ This skill generates comprehensive test requirements from specifications through
 - **As part of the planning pipeline**: `/brainstorm` → `/breakdown` → `/spec` → `/test-reqs` → `/decompose`
 - **Standalone**: When you have a spec and need test requirements for any feature
 
-**When in the pipeline**: Takes spec output and generates test requirements (execution mockup + test scenarios) that feed into `/decompose`.
+**When in the pipeline**: Takes spec output and generates test requirements (execution mockup + test scenarios) that feed into `/decompose`. **Tip**: If breakdown Layer 3 is available, reference it for implementation-specific test details (e.g., "Test JWT token format" vs generic "Test session token").
 
 ## Execution Rhythm: Two Phases, One Turn
 

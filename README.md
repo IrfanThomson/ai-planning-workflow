@@ -150,6 +150,15 @@ This workflow is designed for **super-powered HITL (Human-in-the-Loop)** - AI as
 
 This approach balances AI assistance with human control, ensuring you build what you actually want.
 
+### Breakdown as Technical Anchor
+
+**Important note**: Breakdown Layer 3 provides the technical blueprint that should flow through the entire workflow. When breakdown decides on PostgreSQL, JWT sessions, or Redis caching, these specific choices should be preserved in:
+- **Spec**: Reference tech choices in technical context
+- **Test-reqs**: Test implementation-specific details (JWT format, Redis key structure)
+- **Decompose**: Use concrete tech in task descriptions ("Create PostgreSQL migration" not "Create database migration")
+
+Don't let abstraction lose important technical context. Breakdown's specificity is a feature, not a bug - it makes downstream stages more concrete and reduces ambiguity.
+
 ---
 
 ## Skills
