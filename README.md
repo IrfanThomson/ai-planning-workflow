@@ -15,6 +15,143 @@ This workflow helps you go from initial idea exploration to concrete, executable
    Ideas                   Spec                  + Executable Tasks
 ```
 
+## Philosophy: Super-Powered Human-in-the-Loop
+
+This workflow is designed for **super-powered HITL (Human-in-the-Loop)** - AI assists at every step, but you maintain control over decisions. The key insight: **the workflow is recursively applicable at different scales**.
+
+### Multi-Level Planning
+
+**The workflow doesn't have to run just once.** Depending on the scale of what you're planning, you may need to run it multiple times at different levels:
+
+**Example: Building a SaaS Platform**
+
+**❌ Wrong approach** - Run workflow once at too high a level:
+```
+/brainstorm "Build a SaaS platform for project management"
+→ /breakdown → /spec → /test-reqs → /decompose
+→ AI generates tasks for entire platform
+→ Problem: Too many decisions made by AI without your input
+→ You lose control over architecture, features, priorities
+```
+
+**✅ Right approach** - Run workflow multiple times, zooming in progressively:
+
+**Level 1: High-level features** (first pass):
+```
+/brainstorm "Build a SaaS platform for project management"
+→ Identifies major features: Auth, Projects, Tasks, Real-time Collaboration, Billing
+→ /decompose generates tasks for PLANNING each feature (not implementing)
+→ Output: "Plan authentication system", "Plan task management", etc.
+```
+
+**Level 2: Feature-level planning** (second pass, per feature):
+```
+/brainstorm "Design authentication system for SaaS platform"
+→ Explores: OAuth vs email/password, session management, MFA, etc.
+→ You pick: Email/password with JWT sessions, Google OAuth, MFA optional
+→ /breakdown → /spec → /test-reqs → /decompose
+→ Output: Concrete tasks for auth implementation
+```
+
+**Level 3: Component-level planning** (third pass, if needed):
+```
+/brainstorm "Implement Google OAuth integration"
+→ Explores: Library choices, token storage, refresh flow
+→ /breakdown → /spec → /test-reqs → /decompose
+→ Output: Very specific implementation tasks
+```
+
+### When to Zoom In
+
+**Signs you're at the wrong level** (too high):
+- Tasks feel vague or require major architectural decisions
+- You're uncomfortable with how much the AI is deciding
+- Feature descriptions span multiple systems/concerns
+- Time estimates exceed 1-2 hours
+- You think "but wait, how exactly would we do that?"
+
+**When this happens**: Stop. Pick that feature/task and run the workflow again just for that piece.
+
+**Signs you're at the right level**:
+- You can visualize the implementation clearly
+- Tasks feel concrete and scoped
+- You're comfortable with AI filling in tactical details
+- Time estimates are 15-45 minutes
+- Test requirements make sense and are testable
+
+**Signs you've gone too deep** (too low):
+- You're micromanaging obvious details
+- Tasks are "add import statement" or "create file"
+- You're reducing AI effectiveness by over-specifying
+- The workflow feels tedious
+
+### The HITL Sweet Spot
+
+**You want to maintain control over**:
+- Architecture decisions (how systems connect)
+- Technology choices (libraries, patterns, approaches)
+- Feature scope (what's in/out)
+- Priority and sequencing
+- Quality standards
+
+**You want AI to handle**:
+- Tactical implementation details
+- Boilerplate and setup
+- Test scenario generation
+- Edge case enumeration
+- Standard patterns
+
+**The workflow helps you stay in control** by:
+1. **Breaking down incrementally** - you decide when to go deeper
+2. **Reviewing at each phase** - course-correct before AI goes too far
+3. **Explicit handoffs** - clear points where you approve/adjust
+4. **Nested brainstorming** - explore sub-problems without committing
+
+### Recursive Workflow Pattern
+
+```
+1. High-level brainstorm → Identify major features
+2. For each major feature:
+   a. Run workflow (brainstorm → breakdown → spec → test-reqs → decompose)
+   b. Review output tasks
+   c. If task is too vague: Run workflow again for that task (go to 2a)
+   d. If task is concrete: Add to execution backlog
+3. Execute concrete tasks with AI agents
+```
+
+**You control the recursion depth** - stop when tasks feel concrete enough for execution.
+
+### Examples of Multi-Level Planning
+
+**Example 1: E-commerce Site**
+- **Level 1**: Identify features (Product catalog, Cart, Checkout, Admin)
+- **Level 2**: Plan "Checkout" (Payment processing, Order management, Email notifications)
+- **Level 3**: Plan "Payment processing" (Stripe integration, webhook handling, retry logic)
+- **Execute**: Concrete tasks for Stripe integration
+
+**Example 2: Real-time Collaboration**
+- **Level 1**: Identify subsystems (WebSocket server, Presence, CRDT sync, Conflict resolution)
+- **Level 2**: Plan "CRDT sync" (Data structure choice, merge algorithm, persistence)
+- **Execute**: Concrete tasks for CRDT implementation
+
+**Example 3: Mobile App**
+- **Level 1**: Features (Onboarding, Feed, Camera, Social, Settings)
+- **Level 2**: Plan "Camera" (Capture, Filters, Upload, Storage)
+- **Level 3**: Plan "Filters" (Filter types, Implementation, Performance)
+- **Execute**: Concrete filter implementation tasks
+
+### Key Takeaway
+
+**Don't try to plan everything in one pass.** The workflow is most effective when:
+- You run it multiple times at different scales
+- You zoom in when details matter to you
+- You maintain HITL at the level where decisions happen
+- You let AI handle tactics once strategy is clear
+
+This approach balances AI assistance with human control, ensuring you build what you actually want.
+
+---
+
 ## Skills
 
 ### 1. `/brainstorm` - Collaborative Solution Exploration
