@@ -497,7 +497,7 @@ Scenario: Export with no tasks [P1, Error Path]
 ## Integration with Workflow Pipeline
 
 ```
-/brainstorm → /breakdown → /spec → /test-reqs → /decompose
+/brainstorm → /refine → /breakdown → /spec → /test-reqs → /decompose
                    ↓          ↓         ↓            ↓
               Layer 3     Formal    Test Reqs   Feature Areas
               Blueprint    Spec                  + Tasks

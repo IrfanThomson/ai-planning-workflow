@@ -249,7 +249,7 @@ For now, use the default template and adapt sections as needed.
 ## Integration with Workflow Pipeline
 
 ```
-/brainstorm → /breakdown → /spec → /test-reqs → /decompose
+/brainstorm → /refine → /breakdown → /spec → /test-reqs → /decompose
                    ↓         ↓
               Layer 3    Formal Spec
               Blueprint  (Behavior-focused)

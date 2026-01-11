@@ -9,15 +9,40 @@ This workflow helps you go from initial idea exploration to concrete, executable
 ## The Complete Pipeline
 
 ```
-/brainstorm → /breakdown → /spec → /test-reqs → /decompose
-     ↓             ↓          ↓         ↓            ↓
-  Explore       Layers    Formal    Test Reqs   Feature Areas
-   Ideas                   Spec                  + Executable Tasks
+/brainstorm → /refine → /breakdown → /spec → /test-reqs → /decompose
+     ↓           ↓           ↓         ↓         ↓            ↓
+  Explore     Define     Layers    Formal    Test Reqs   Feature Areas
+   Ideas      Scope                 Spec                  + Executable Tasks
 ```
 
 ## Philosophy: Super-Powered Human-in-the-Loop
 
 This workflow is designed for **super-powered HITL (Human-in-the-Loop)** - AI assists at every step, but you maintain control over decisions. The key insight: **the workflow is recursively applicable at different scales**.
+
+### The Critical HITL Checkpoint: Refinement
+
+**Problem**: AI naturally drifts toward complex "dream versions" of ideas. Without boundaries, breakdown will create comprehensive, feature-rich designs that exceed what you actually need.
+
+**Solution**: **`/refine`** sits between brainstorm and breakdown as the critical HITL checkpoint. It establishes scope, constraints, and priorities through interactive Q&A:
+- **MVP vs full version**: What's the simplest that delivers value?
+- **Must-have vs nice-to-have**: What can wait for v2?
+- **Constraints**: Timeline, tech stack, complexity budget
+- **Priorities**: What matters most when trade-offs arise?
+
+**Without refinement**:
+```
+Brainstorm: "User auth" → Breakdown: OAuth + MFA + password reset + email verification + JWT + account lockout...
+Result: Overwhelmed, too complex
+```
+
+**With refinement**:
+```
+Brainstorm: "User auth" → Refine: "MVP, email/password only, cookie sessions, no OAuth/MFA"
+→ Breakdown: Signup + login + logout + cookie sessions
+Result: Right-sized, matches actual need
+```
+
+Refinement grounds breakdown's technical decisions in your actual intent, preventing over-design.
 
 ### Multi-Level Planning
 
@@ -176,11 +201,29 @@ Don't let abstraction lose important technical context. Breakdown's specificity 
 
 **When to use**: When you need to explore options, aren't sure what to build, or want to validate ideas.
 
-**Output**: Refined solution approach ready for breakdown.
+**Output**: Refined solution approach ready for scope refinement.
 
 ---
 
-### 2. `/breakdown` - Progressive Understanding Through Layers
+### 2. `/refine` - Scope Definition Through Interactive Q&A
+
+**Purpose**: Refine ideas and define scope through back-and-forth questions before technical breakdown. Prevents over-design by establishing clear boundaries.
+
+**Key Features**:
+- Conversational iteration (asks questions, you answer, iterates)
+- MVP vs full version definition
+- Must-have vs nice-to-have prioritization
+- Constraints identification (timeline, tech, complexity budget)
+- Priority establishment for trade-offs
+- Grounds breakdown in actual user intent
+
+**When to use**: Always use between brainstorm and breakdown to prevent AI from creating overly complex designs. Skip only if you already have very detailed requirements.
+
+**Output**: Refined scope document with must-haves, out-of-scope items, constraints, and priorities. Feeds into `/breakdown` to guide technical decisions.
+
+---
+
+### 3. `/breakdown` - Progressive Understanding Through Layers
 
 **Purpose**: Transform complex ideas into three progressive layers of understanding.
 
@@ -197,7 +240,7 @@ Don't let abstraction lose important technical context. Breakdown's specificity 
 
 ---
 
-### 3. `/spec` - High-Level Specification Creation
+### 4. `/spec` - High-Level Specification Creation
 
 **Purpose**: Create detailed, behavior-focused specifications describing WHAT needs to exist and WHY, not HOW.
 
@@ -214,7 +257,7 @@ Don't let abstraction lose important technical context. Breakdown's specificity 
 
 ---
 
-### 4. `/test-reqs` - Comprehensive Test Requirements
+### 5. `/test-reqs` - Comprehensive Test Requirements
 
 **Purpose**: Generate comprehensive test requirements through execution mockup + test scenarios.
 
@@ -231,7 +274,7 @@ Don't let abstraction lose important technical context. Breakdown's specificity 
 
 ---
 
-### 5. `/decompose` - Spec to Executable Tasks
+### 6. `/decompose` - Spec to Executable Tasks
 
 **Purpose**: Transform specifications and test requirements into concrete, executable tasks organized by feature areas.
 

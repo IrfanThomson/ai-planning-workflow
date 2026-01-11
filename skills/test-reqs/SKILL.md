@@ -634,7 +634,7 @@ Then created date should be formatted as "YYYY-MM-DD"
 ## Integration with Workflow Pipeline
 
 ```
-/brainstorm → /breakdown → /spec → /test-reqs → /decompose
+/brainstorm → /refine → /breakdown → /spec → /test-reqs → /decompose
                    ↓          ↓         ↓
               Layer 3     Spec    Test Requirements
               Blueprint           (Execution Mockup + Scenarios)

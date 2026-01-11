@@ -11,10 +11,10 @@ This skill transforms complex ideas into three progressive layers of understandi
 ## Workflow Context
 
 **This skill can be used:**
-- **As part of the planning pipeline**: `/brainstorm` → `/breakdown` → `/spec` → `/test-reqs` → `/decompose`
+- **As part of the planning pipeline**: `/brainstorm` → `/refine` → `/breakdown` → `/spec` → `/test-reqs` → `/decompose`
 - **Standalone**: When you need progressive understanding of any concept (technical, business, abstract)
 
-**When in the pipeline**: Takes output from `/brainstorm` and creates Layer 3 (blueprint) that feeds into `/spec`.
+**When in the pipeline**: Takes output from `/brainstorm` and `/refine` (scope document) to create Layer 3 (blueprint) that respects defined boundaries and constraints. Feeds into `/spec`.
 
 ## Execution Rhythm: Generate All Layers at Once
 
